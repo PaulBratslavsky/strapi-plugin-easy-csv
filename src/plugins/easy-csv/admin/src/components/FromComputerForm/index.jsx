@@ -32,7 +32,7 @@ const OpaqueBox = styled(Box)`
   cursor: pointer;
 `;
 
-export const FromComputerForm = ({ onAddAssets }) => {
+export default function FromComputerForm({ onAddAssets }) {
   const { formatMessage } = useIntl();
   const [dragOver, setDragOver] = useState(false);
   const inputRef = useRef(null);
@@ -57,6 +57,7 @@ export const FromComputerForm = ({ onAddAssets }) => {
   const handleChange = () => {
     const file = inputRef.current.files[0];
     const asset = rawFileToAsset(file, AssetSource.Computer);
+    console.log("handleChange", asset)
     onAddAssets(asset);
     
   };
